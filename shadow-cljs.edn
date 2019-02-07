@@ -1,0 +1,17 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src/dev"
+  "src/main"
+  "src/test"]
+
+ :dependencies
+ [[reagent "0.8.1"]
+  [webjure/tuck "20181204"]
+  [markdown-to-hiccup "0.6.2"]
+  [cider/cider-nrepl "0.18.0"]]
+
+ :builds
+ {:frontend {:target :browser
+             :modules {:main {:init-fn bloggo.frontend.core/init}}
+             :devtools {:http-root "public"
+                        :http-port 8080}}}}
