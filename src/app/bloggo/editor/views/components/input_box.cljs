@@ -1,7 +1,7 @@
-(ns bloggo.frontend.views.editor.components.input-box
+(ns bloggo.editor.views.components.input-box
   (:require [reagent.core :as r]
-            [bloggo.frontend.controllers.editor :as ec]
-            [bloggo.frontend.common :as c]))
+            [bloggo.editor.controllers.editor :as ec]
+            [bloggo.editor.common :as c]))
 
 (defn update-post [e! dom-event]
   (-> dom-event

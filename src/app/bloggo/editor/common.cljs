@@ -1,4 +1,4 @@
-(ns bloggo.frontend.common)
+(ns bloggo.editor.common)
 
 (defn dom-event->value [event]
   (-> event

@@ -1,4 +1,4 @@
-(ns bloggo.frontend.views.editor.components.preview
+(ns bloggo.editor.views.components.preview
   (:require [markdown-to-hiccup.core :as md]))
 
 (defn preview [markdown-string]

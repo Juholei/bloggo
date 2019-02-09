@@ -1,4 +1,4 @@
-(ns bloggo.frontend.controllers.editor
+(ns bloggo.editor.controllers.editor
   (:require [tuck.core :as t :refer-macros [define-event]]))
 
 (define-event UpdateCurrentPost [post-content]

@@ -1,7 +1,7 @@
 ;; shadow-cljs configuration
 {:source-paths
  ["src/dev"
-  "src/main"
+  "src/app"
   "src/test"]
 
  :dependencies
@@ -11,7 +11,7 @@
   [cider/cider-nrepl "0.18.0"]]
 
  :builds
- {:frontend {:target :browser
-             :modules {:main {:init-fn bloggo.frontend.core/init}}
-             :devtools {:http-root "public"
-                        :http-port 8080}}}}
+ {:app {:target :browser
+        :modules {:editor {:init-fn bloggo.editor.core/init}}
+        :devtools {:http-root "public"
+                   :http-port 8080}}}}
