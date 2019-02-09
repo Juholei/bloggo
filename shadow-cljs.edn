@@ -12,6 +12,10 @@
 
  :builds
  {:app {:target :browser
-        :modules {:editor {:init-fn bloggo.editor.core/init}}
+        :module-loader true
+        :modules {:main {:entries [bloggo.main.core]
+                         :init-fn bloggo.main.core/init}
+                  :editor {:init-fn bloggo.editor.core/init
+                           :depends-on #{:main}}}
         :devtools {:http-root "public"
                    :http-port 8080}}}}
