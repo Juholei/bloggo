@@ -7,4 +7,4 @@ frontend app, with the point of learning and trying out shadow-cljs.
 
 * Install shadow-cljs from npm: `npm install -g shadow-cljs`
 * Install npm dependencies with `npm i`
-* Start shadow-cljs build watch `shadow-cljs watch frontend`
+* Start shadow-cljs build watch `shadow-cljs watch app`
