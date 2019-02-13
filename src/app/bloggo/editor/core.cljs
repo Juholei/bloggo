@@ -1,12 +1,10 @@
 (ns bloggo.editor.core
   (:require [reagent.core :as r]
             [tuck.core :as t]
-            [bloggo.editor.state :as state]
-            [bloggo.editor.views.root-view :refer [root-view]]))
+            [bloggo.editor.views.editor-view :refer [editor]]
+            [bloggo.main.routes :as routes]
+            [bloggo.main.core :as c]))
 
-(defn mount-app []
-  (r/render [t/tuck state/app-state root-view]
-            (.getElementById js/document "app")))
-
-(defn init []
-  (mount-app))
+(defmethod c/root-view ::routes/editor [app e!]
+  [:<>
+   [editor e! (:current-post app)]])

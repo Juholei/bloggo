@@ -8,14 +8,16 @@
  [[reagent "0.8.1"]
   [webjure/tuck "20181204"]
   [markdown-to-hiccup "0.6.2"]
-  [cider/cider-nrepl "0.18.0"]]
+  [cider/cider-nrepl "0.18.0"]
+  [metosin/reitit-core "0.2.13"]
+  [metosin/reitit-frontend "0.2.13"]]
 
  :builds
  {:app {:target :browser
         :module-loader true
         :modules {:main {:entries [bloggo.main.core]
                          :init-fn bloggo.main.core/init}
-                  :editor {:init-fn bloggo.editor.core/init
+                  :editor {:entries [bloggo.editor.core]
                            :depends-on #{:main}}}
         :devtools {:http-root "public"
                    :http-port 8080}}}}
