@@ -20,4 +20,5 @@
                   :editor {:entries [bloggo.editor.core]
                            :depends-on #{:main}}}
         :devtools {:http-root "public"
-                   :http-port 8080}}}}
+                   :http-port 8080
+                   :after-load bloggo.main.core/init}}}}
