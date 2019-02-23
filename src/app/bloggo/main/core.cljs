@@ -16,7 +16,7 @@
 
 (defn navlinks []
   [{:url (routes/href ::routes/frontpage) :label "Frontpage"}
-   {:url (routes/href ::routes/editor) :label "Editor"}])
+   {:url (routes/href ::routes/editor) :label "Write a new hot take"}])
 
 (defn app [e! app-state]
   (r/with-let [_ (routes/init-routes! e!)]
