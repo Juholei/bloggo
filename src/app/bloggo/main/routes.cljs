@@ -17,6 +17,7 @@
                :controllers [{:start (fn load-and-open-editor! []
                                        (loader/load-module "editor"
                                                            #(e! (->SetView ::editor))))}]}]])
+
 (defonce  match (r/atom nil))
 
 (defn route-matcher [new-match]
