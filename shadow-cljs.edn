@@ -1,6 +1,7 @@
 ;; shadow-cljs configuration
 {:source-paths
- ["src/app"]
+ ["src/app"
+  "src/lambda"]
 
  :dependencies
  [[reagent "0.8.1"]
@@ -21,4 +22,7 @@
                            :depends-on #{:main}}}
         :devtools {:http-root "public"
                    :http-port 8080
-                   :after-load bloggo.main.core/init}}}}
+                   :after-load bloggo.main.core/init}}
+  :lambda {:target :node-library
+           :exports {:echo  bloggo.lambda.core/echo}
+           :output-to "target/bloggo.js"}}}
