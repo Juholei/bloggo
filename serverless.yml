@@ -5,15 +5,16 @@ provider:
   runtime: nodejs8.10
 
 functions:
-  echo:
-    handler: target/bloggo.echo
+  posts:
+    handler: target/bloggo.posts
     events:
       - http:
-          path: echo
+          path: posts/{page}
           method: get
 
 plugins:
   - serverless-finch
+  - serverless-offline
 
 custom:
   client:

@@ -11,7 +11,8 @@
   [binaryage/devtools "0.9.10"]
   [metosin/reitit-core "0.2.13"]
   [metosin/reitit-frontend "0.2.13"]
-  [data-frisk-reagent "0.4.5"]]
+  [data-frisk-reagent "0.4.5"]
+  [camel-snake-kebab "0.4.0"]]
 
  :builds
  {:app {:target :browser
@@ -22,7 +23,9 @@
                            :depends-on #{:main}}}
         :devtools {:http-root "public"
                    :http-port 8080
-                   :after-load bloggo.main.core/init}}
+                   :after-load bloggo.main.core/init}
+        :dev {:closure-defines {bloggo.main.api/URL "http://localhost:3000"}}
+        :release {:closure-defines {bloggo.main.api/URL "lol.lambda.aws"}}}
   :lambda {:target :node-library
-           :exports {:echo  bloggo.lambda.core/echo}
+           :exports {:posts  bloggo.lambda.core/posts}
            :output-to "target/bloggo.js"}}}
