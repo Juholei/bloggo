@@ -4,7 +4,8 @@
             [reitit.frontend.controllers :as rfc]
             [reagent.core :as r]
             [tuck.core :as t :refer-macros [define-event]]
-            [bloggo.main.module-loader :as loader]))
+            [bloggo.main.module-loader :as loader]
+            [bloggo.main.controllers.posts :as posts]))
 
 (define-event SetView [view-key]
   {:path [:view]}
@@ -12,7 +13,8 @@
 
 (defn routes [e!]
   [["/" {:name ::frontpage
-         :controllers [{:start #(e! (->SetView ::frontpage))}]}]
+         :controllers [{:start #(e! (->SetView ::frontpage))}
+                       {:start #(e! (posts/->GetPosts 0))}]}]
    ["/editor" {:name ::editor
                :controllers [{:start (fn load-and-open-editor! []
                                        (loader/load-module "editor"
