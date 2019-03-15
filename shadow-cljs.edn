@@ -1,7 +1,8 @@
 ;; shadow-cljs configuration
 {:source-paths
  ["src/app"
-  "src/lambda"]
+  "src/lambda"
+  "test/app"]
 
  :dependencies
  [[reagent "0.8.1"]
@@ -27,6 +28,12 @@
                    :after-load bloggo.main.core/init}
         :dev {:closure-defines {bloggo.main.api/URL "http://localhost:3000"}}
         :release {:closure-defines {bloggo.main.api/URL "lol.lambda.aws"}}}
+  :app-test {:target :browser-test
+             :test-dir "target/test"
+             :devtools  {:http-port 8021
+                         :http-root  "target/test"}}
+  :app-test-ci {:target :karma
+                :output-to "target/test/ci.js"}
   :lambda {:target :node-library
-           :exports {:posts  bloggo.lambda.core/posts}
+           :exports {:posts bloggo.lambda.core/posts}
            :output-to "target/bloggo.js"}}}
