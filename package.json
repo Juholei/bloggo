@@ -6,18 +6,20 @@
     "karma": "^4.0.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-cljs-test": "^0.1.0",
+    "nodemon": "^1.18.10",
     "serverless-finch": "^2.3.2",
-    "serverless-offline": "^4.8.1",
-    "shadow-cljs": "2.7.23"
+    "serverless-offline": "^4.9.1",
+    "shadow-cljs": "^2.8.18"
   },
   "dependencies": {
     "create-react-class": "^15.6.3",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1"
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
   },
   "scripts": {
     "start": "shadow-cljs watch app lambda",
     "test-watch": "shadow-cljs watch app-test",
-    "test": "shadow-cljs compile app-test-ci && node_modules/karma/bin/karma start --single-run"
+    "test": "shadow-cljs compile app-test-ci && node_modules/karma/bin/karma start --single-run",
+    "serverless-offline": "npx nodemon --exec \"serverless offline\" --watch target/bloggo.js"
   }
 }
