@@ -8,7 +8,6 @@
  [[reagent "0.8.1"]
   [webjure/tuck "20181204"]
   [markdown-to-hiccup "0.6.2"]
-  [cider/cider-nrepl "0.18.0"]
   [binaryage/devtools "0.9.10"]
   [metosin/reitit-core "0.2.13"]
   [metosin/reitit-frontend "0.2.13"]
