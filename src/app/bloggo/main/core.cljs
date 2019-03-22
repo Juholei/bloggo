@@ -5,7 +5,8 @@
             [bloggo.main.state :as state]
             [bloggo.main.module-loader :as loader]
             [bloggo.main.routes :as routes]
-            [bloggo.main.components.navbar :refer [navbar]]))
+            [bloggo.main.components.navbar :refer [navbar]]
+            [bloggo.main.views.main-page :as main-page]))
 
 (defmulti root-view :view)
 (defmethod root-view :default [params]
@@ -13,7 +14,8 @@
 
 (defmethod root-view ::routes/frontpage [app-state e!]
   [:<>
-   [:h1 "Bloggo Blog Platform - Disrupting blogosphere since 20xx"]])
+   [:h1 "Bloggo Blog Platform - Disrupting blogosphere since 20xx"]
+   [main-page/main-page (:posts app-state)]])
 
 (defn navlinks []
   [{:url (routes/href ::routes/frontpage) :label "Frontpage"}
