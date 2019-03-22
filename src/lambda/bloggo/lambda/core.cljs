@@ -4,7 +4,10 @@
 (defn posts [e ctx cb]
   (println (-> e util/clojurify-event :path-parameters))
   (cb nil (clj->js {:statusCode 200
-                    :body "moi"})))
+                    :body (-> [{:post "## Hello \n * jee \n * woah"
+                                 :title "This is a blog post"}]
+                              clj->js
+                              js/JSON.stringify)})))
 
 
 
