@@ -1,0 +1,8 @@
+(ns bloggo.main.views.main-page
+  (:require [bloggo.main.components.blog-post :as blog-post]))
+
+(defn main-page [posts]
+  [:div.posts
+   (for [post-data posts]
+     ^{:key (:title post-data)}
+     [blog-post/blog-post post-data])])
