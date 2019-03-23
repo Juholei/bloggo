@@ -5,4 +5,4 @@
   [:div.posts
    (for [post-data posts]
      ^{:key (:title post-data)}
-     [blog-post/blog-post post-data])])
+     [blog-post/post-preview post-data])])
