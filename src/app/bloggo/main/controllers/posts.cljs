@@ -1,16 +1,11 @@
 (ns bloggo.main.controllers.posts
   (:require [tuck.core :as tuck :refer-macros [define-event]]
-            [bloggo.main.api :as api]
-            [camel-snake-kebab.core :as cskc]
-            [camel-snake-kebab.extras :as cske]))
+            [bloggo.main.api :as api]))
 
-(defn json->map [json]
-  (cske/transform-keys cskc/->kebab-case-keyword json))
 
 (define-event SetPosts [posts]
   {:path [:posts]}
   (->> posts
-       (map json->map)
        (concat app)))
 
 (define-event GetPosts [page]
@@ -19,4 +14,15 @@
            {:tuck.effect/type ::api/get
             :path             (str "/posts/" page)
             :on-success       ->SetPosts}))
+
+(define-event ShowPost [post]
+  {}
+  (assoc app :in-progress? false :current-post post))
+
+(define-event GetPost [id on-success]
+  {}
+  (tuck/fx (assoc app :in-progress? true)
+           {:tuck.effect/type ::api/get
+            :path (str "/post/" id)
+            :on-success on-success}))
 

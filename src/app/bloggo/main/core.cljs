@@ -6,16 +6,7 @@
             [bloggo.main.module-loader :as loader]
             [bloggo.main.routes :as routes]
             [bloggo.main.components.navbar :refer [navbar]]
-            [bloggo.main.views.main-page :as main-page]))
-
-(defmulti root-view :view)
-(defmethod root-view :default [params]
-  nil)
-
-(defmethod root-view ::routes/frontpage [app-state e!]
-  [:<>
-   [:h1 "Bloggo Blog Platform - Disrupting blogosphere since 20xx"]
-   [main-page/main-page (:posts app-state)]])
+            [bloggo.main.view-resolver :as view-resolver :refer [root-view]]))
 
 (defn navlinks []
   [{:url (routes/href ::routes/frontpage) :label "Frontpage"}

@@ -3,8 +3,8 @@
             [tuck.core :as t]
             [bloggo.editor.views.editor-view :refer [editor]]
             [bloggo.main.routes :as routes]
-            [bloggo.main.core :as c]))
+            [bloggo.main.view-resolver :as v]))
 
-(defmethod c/root-view ::routes/editor [app e!]
+(defmethod v/root-view ::routes/editor [app e!]
   [:<>
    [editor e! (:current-post app)]])

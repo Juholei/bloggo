@@ -18,7 +18,12 @@
    ["/editor" {:name ::editor
                :controllers [{:start (fn load-and-open-editor! []
                                        (loader/load-module "editor"
-                                                           #(e! (->SetView ::editor))))}]}]])
+                                                           #(e! (->SetView ::editor))))}]}]
+   ["/post/:post-id" {:name ::post
+                      :controllers [{:parameters {:path [:post-id]}
+                                     :start (fn load-post! [{:keys [path]}]
+                                              (e! (posts/->GetPost (:post-id path) posts/->ShowPost))
+                                              (e! (->SetView ::post)))}]}]])
 
 (defonce  match (r/atom nil))
 
@@ -33,6 +38,9 @@
    route-matcher
    {:use-fragment false}))
 
-(defn href [page]
-  (rfe/href page))
+(defn href
+  ([page]
+   (rfe/href page))
+  ([page params]
+   (rfe/href page params)))
 
