@@ -6,7 +6,8 @@
 (define-event SetPosts [posts]
   {:path [:posts]}
   (->> posts
-       (concat app)))
+       (concat app)
+       distinct))
 
 (define-event GetPosts [page]
   {}
