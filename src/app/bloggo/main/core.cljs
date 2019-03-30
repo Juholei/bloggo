@@ -27,3 +27,6 @@
 
 (defn init []
   (mount-app!))
+
+(defn refresh! []
+  (r/force-update-all))

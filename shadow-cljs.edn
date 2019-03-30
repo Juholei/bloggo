@@ -24,7 +24,7 @@
                            :depends-on #{:main}}}
         :devtools {:http-root "public"
                    :http-port 8080
-                   :after-load bloggo.main.core/init}
+                   :after-load bloggo.main.core/refresh!}
         :dev {:closure-defines {bloggo.main.api/URL "http://localhost:3000"}}
         :release {:closure-defines {bloggo.main.api/URL "lol.lambda.aws"}}}
   :app-test {:target :browser-test
