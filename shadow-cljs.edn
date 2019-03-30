@@ -34,5 +34,6 @@
   :app-test-ci {:target :karma
                 :output-to "target/test/ci.js"}
   :lambda {:target :node-library
-           :exports {:posts bloggo.lambda.core/posts}
+           :exports {:posts bloggo.lambda.core/posts
+                     :post  bloggo.lambda.core/post}
            :output-to "target/bloggo.js"}}}

@@ -11,6 +11,12 @@ functions:
       - http:
           path: posts/{page}
           method: get
+  post:
+    handler: target/bloggo.post
+    events:
+      - http:
+          path: post/{id}
+          method: get
 
 plugins:
   - serverless-finch
