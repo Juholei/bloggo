@@ -7,4 +7,4 @@
 
 (defmethod v/root-view ::routes/editor [app e!]
   [:<>
-   [editor e! (:current-post app)]])
+   [editor e! (:new-post app)]])
