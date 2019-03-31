@@ -1,4 +1,4 @@
-(ns bloggo.editor.views.editor-view
+(ns bloggo.editor.views.editor
   (:require [bloggo.editor.views.components.preview :refer [preview]]
             [bloggo.editor.views.components.input-box :refer [input-box]]
             [bloggo.editor.views.components.button-bar :refer [button-bar]]
@@ -17,7 +17,7 @@
    [{:text "Save" :on-click (r/partial save-post e!)}
     {:text "Publish" :on-click (r/partial publish-post e!)}]])
 
-(defn editor [e! editable-content]
+(defn editor-page [e! editable-content]
   [:<>
    [editor-buttons e!]
    [:div.editor-container
