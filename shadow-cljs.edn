@@ -2,7 +2,8 @@
 {:source-paths
  ["src/app"
   "src/lambda"
-  "test/app"]
+  "test/app"
+  "src/devcards"]
 
  :dependencies
  [[reagent "0.8.1"]
@@ -13,7 +14,8 @@
   [metosin/reitit-frontend "0.3.1"]
   [data-frisk-reagent "0.4.5"]
   [camel-snake-kebab "0.4.0"]
-  [cljs-ajax "0.8.0"]]
+  [cljs-ajax "0.8.0"]
+  [devcards "0.2.5"]]
 
  :builds
  {:app {:target :browser
@@ -33,6 +35,15 @@
                          :http-root  "target/test"}}
   :app-test-ci {:target :karma
                 :output-to "target/test/ci.js"}
+  :devcards {:target :browser
+             :output-dir "public/js/devcards"
+             :asset-path "/js/devcards"
+             :modules {:main {:entries [bloggo.devcards]
+                              :init-fn bloggo.devcards/main}}
+             :devtools {:http-port 8022
+                        :http-root "public"
+                        :after-load bloggo.devcards/main}
+             :dev {:compiler-options {:devcards true}}}
   :lambda {:target :node-library
            :exports {:posts bloggo.lambda.core/posts
                      :post  bloggo.lambda.core/post}
