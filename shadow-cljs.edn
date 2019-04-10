@@ -38,11 +38,11 @@
   :devcards {:target :browser
              :output-dir "public/js/devcards"
              :asset-path "/js/devcards"
-             :modules {:main {:entries [bloggo.devcards]
-                              :init-fn bloggo.devcards/main}}
+             :modules {:main {:entries [bloggo-example.devcards]
+                              :init-fn bloggo-example.devcards/main}}
              :devtools {:http-port 8022
                         :http-root "public"
-                        :after-load bloggo.devcards/main}
+                        :after-load bloggo-example.devcards/main}
              :dev {:compiler-options {:devcards true}}}
   :lambda {:target :node-library
            :exports {:posts bloggo.lambda.core/posts

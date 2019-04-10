@@ -1,14 +1,10 @@
-(ns bloggo.editor.views.components.button-bar)
-
-(defn button [button-data]
-  [:button {:type :button
-            :on-click (:on-click button-data)}
-   (:text button-data)])
+(ns bloggo.editor.views.components.button-bar
+  (:require [bloggo.main.components.input :as input]))
 
 (defn button-bar [bar-id content]
   [:ul {:id bar-id}
-   (for [button-content content]
-     ^{:key (str bar-id "-" (:text button-content))}
+   (for [{:keys [text on-click]} content]
+     ^{:key (str bar-id "-" text)}
      [:li
-      [button button-content]])])
+      [input/button text on-click]])])
 
