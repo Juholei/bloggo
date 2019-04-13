@@ -22,3 +22,17 @@
     (is (= (tuck/process-event (sut/->AddPosts [{:title "Test post"}]) {})
            {:posts [{:title "Test post"}]}))))
 
+(deftest test-GetPosts
+  (testing "GetPosts set in-progress? to true"
+    (is (true? (-> (sut/->GetPosts 0)
+                   (tuck/process-event {})
+                   .-app
+                   :in-progress?))))
+  (testing "GetPosts request url uses the given page number"
+    (is (= (-> (sut/->GetPosts 2)
+               (tuck/process-event {})
+               .-effects
+               first
+               :path)
+           "/posts/2"))))
+
