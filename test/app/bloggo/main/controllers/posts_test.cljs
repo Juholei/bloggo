@@ -36,3 +36,9 @@
                :path)
            "/posts/2"))))
 
+(deftest test-ShowPost
+  (testing "ShowPost sets given post to current post and"
+    (is (= (-> (sut/->ShowPost {:title "This is a post"})
+               (tuck/process-event {})
+               :current-post)
+           {:title "This is a post"}))))
