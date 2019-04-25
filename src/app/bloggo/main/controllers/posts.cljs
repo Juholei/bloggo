@@ -2,23 +2,16 @@
   (:require [tuck.core :as tuck :refer-macros [define-event]]
             [bloggo.main.api :as api]))
 
-(defn add-posts
-  "Adds new posts to the end of existing and removes duplicates"
-  [existing new]
-  (->> new
-       (concat existing)
-       distinct))
-
-(define-event AddPosts [posts]
+(define-event SetPosts [posts]
   {:path [:posts]}
-  (add-posts app posts))
+  posts)
 
 (define-event GetPosts [page]
   {}
   (tuck/fx (assoc app :in-progress? true)
            {:tuck.effect/type ::api/get
             :path             (str "/posts/" page)
-            :on-success       ->AddPosts}))
+            :on-success       ->SetPosts}))
 
 (define-event ShowPost [post]
   {}
