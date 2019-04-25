@@ -14,7 +14,11 @@
 (defn routes [e!]
   [["/" {:name ::frontpage
          :controllers [{:start #(e! (->SetView ::frontpage))}
-                       {:start #(e! (posts/->GetPosts 0))}]}]
+                       {:start #(e! (posts/->GetPosts 1))}]}]
+   ["/page/:page-number" {:name ::page
+                          :controllers [{:parameters {:path [:page-number]}
+                                         :start (fn [{:keys [path]}]
+                                                  (e! (posts/->GetPosts (:page-number path))))}]}]
    ["/editor" {:name ::editor
                :controllers [{:start (fn load-and-open-editor! []
                                        (loader/load-module "editor"
