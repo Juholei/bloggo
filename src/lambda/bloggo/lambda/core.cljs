@@ -2,6 +2,8 @@
   (:require [bloggo.lambda.util :as util]
             [clojure.string :as str]))
 
+(def page-length 1)
+
 (def mock-posts [{:post "## Hello \n * jee \n * woah"
                   :title "This is a blog post"
                   :id 0}
@@ -26,13 +28,18 @@ Ipsa est harum et consequatur temporibus qui. Ut optio non nisi rem voluptatem. 
 (defn posts->previews [posts]
   (map post->preview posts))
 
+(defn split-to-pages [posts page-length]
+  (partition page-length page-length nil posts))
+
 (defn posts [e ctx cb]
-  (println (-> e util/clojurify-event :path-parameters))
-  (cb nil (clj->js {:statusCode 200
-                    :body (-> mock-posts
-                              posts->previews
-                              clj->js
-                              js/JSON.stringify)})))
+  (let [path-params (-> e util/clojurify-event :path-parameters)]
+    (cb nil (clj->js {:statusCode 200
+                      :body (-> mock-posts
+                                (split-to-pages page-length)
+                                (nth (dec (int (:page path-params))) nil)
+                                posts->previews
+                                clj->js
+                                js/JSON.stringify)}))))
 
 (defn post [e ctx cb]
   (let [post-id (-> e util/clojurify-event :path-parameters :id int)]
