@@ -24,3 +24,6 @@
             :path (str "/post/" id)
             :on-success on-success}))
 
+(define-event SetCurrentPage [page-number]
+  {:path [:page-number]}
+  page-number)
