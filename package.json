@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "karma": "^4.0.1",
+    "karma": "^4.1.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-cljs-test": "^0.1.0",
-    "nodemon": "^1.18.10",
+    "nodemon": "^1.18.11",
     "serverless-finch": "^2.4.2",
     "serverless-offline": "^4.9.4",
-    "shadow-cljs": "^2.8.26",
+    "shadow-cljs": "^2.8.35",
     "showdown": "^1.9.0"
   },
   "dependencies": {
