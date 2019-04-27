@@ -26,4 +26,4 @@
 
 (define-event SetCurrentPage [page-number]
   {:path [:page-number]}
-  page-number)
+  (int page-number))

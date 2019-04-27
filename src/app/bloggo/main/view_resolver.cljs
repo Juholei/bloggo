@@ -9,7 +9,7 @@
   nil)
 
 (defmethod root-view ::routes/frontpage [app-state e!]
-  [main-page/main-page (:posts app-state)])
+  [main-page/main-page (:posts app-state) (:page-number app-state)])
 
 (defmethod root-view ::routes/post [{:keys [current-post]} e!]
   [post-page/post-page current-post])
