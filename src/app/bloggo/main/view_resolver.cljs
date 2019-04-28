@@ -8,8 +8,8 @@
   (println "default view resolver called" params)
   nil)
 
-(defmethod root-view ::routes/frontpage [app-state e!]
-  [main-page/main-page (:posts app-state) (:page-number app-state)])
+(defmethod root-view ::routes/frontpage [{:keys [posts page-number page-count] :as app-state} e!]
+  [main-page/main-page posts page-number page-count])
 
 (defmethod root-view ::routes/post [{:keys [current-post]} e!]
   [post-page/post-page current-post])

@@ -2,9 +2,12 @@
   (:require [tuck.core :as tuck :refer-macros [define-event]]
             [bloggo.main.api :as api]))
 
-(define-event SetPosts [posts]
-  {:path [:posts]}
-  posts)
+(defn update-posts [app-state posts pages]
+  (assoc app-state :posts posts :page-count pages))
+
+(define-event SetPosts [resp]
+  {}
+  (update-posts app (:posts resp) (:page-count resp)))
 
 (define-event GetPosts [page]
   {}

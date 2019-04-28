@@ -31,13 +31,18 @@ Ipsa est harum et consequatur temporibus qui. Ut optio non nisi rem voluptatem. 
 (defn split-to-pages [posts page-length]
   (partition page-length page-length nil posts))
 
+(defn posts-response-body [posts page-count]
+  {:page-count page-count
+   :posts posts})
+
 (defn posts [e ctx cb]
-  (let [path-params (-> e util/clojurify-event :path-parameters)]
+  (let [path-params (-> e util/clojurify-event :path-parameters)
+        pages (split-to-pages mock-posts page-length)]
     (cb nil (clj->js {:statusCode 200
-                      :body (-> mock-posts
-                                (split-to-pages page-length)
+                      :body (-> pages
                                 (nth (dec (int (:page path-params))) nil)
                                 posts->previews
+                                (posts-response-body (count pages))
                                 clj->js
                                 js/JSON.stringify)}))))
 
