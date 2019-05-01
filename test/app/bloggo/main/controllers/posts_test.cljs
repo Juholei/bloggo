@@ -3,10 +3,11 @@
             [cljs.test :refer [deftest testing is]]
             [tuck.core :as tuck]))
 
-(deftest test-add-posts
-  (testing "Tuck event AddPosts sets the posts in the correct place in the app-state"
-    (is (= (tuck/process-event (sut/->SetPosts [{:title "Test post"}]) {})
-           {:posts [{:title "Test post"}]}))))
+(deftest test-SetPosts
+  (testing "Tuck event SetPosts sets the posts in the correct place in the app-state and updates page count"
+    (is (= (tuck/process-event (sut/->SetPosts {:posts [{:title "Test post"}] :page-count 2}) {})
+           {:posts [{:title "Test post"}]
+            :page-count 2}))))
 
 (deftest test-GetPosts
   (testing "GetPosts set in-progress? to true"
