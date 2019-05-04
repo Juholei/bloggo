@@ -17,6 +17,7 @@
   [cljs-ajax "0.8.0"]
   [devcards "0.2.5"]]
 
+ :nrepl {:port 7002}
  :builds
  {:app {:target :browser
         :module-loader true
