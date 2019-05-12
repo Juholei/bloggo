@@ -6,7 +6,7 @@
 (defn update-post [e! dom-event]
   (-> dom-event
       c/dom-event->value
-      ec/->UpdateCurrentPost
+      ec/->UpdateNewPostContent
       e!))
 
 (defn input-box [e! content]

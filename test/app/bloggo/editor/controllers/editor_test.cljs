@@ -3,8 +3,8 @@
             [cljs.test :refer [deftest testing is]]
             [tuck.core :as t]))
 
-(deftest test-UpdateCurrentPost
+(deftest test-UpdateNewPostContent
   (testing "New value is set to state under [:new-post] path"
-    (is (= (t/process-event (sut/->UpdateCurrentPost "new value") {:new-post "new valu"})
-           {:new-post "new value"}))))
+    (is (= (t/process-event (sut/->UpdateNewPostContent "new value") {:new-post {:content "new valu"}})
+           {:new-post {:content "new value"}}))))
 

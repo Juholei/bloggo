@@ -17,9 +17,10 @@
    [{:text "Save" :on-click (r/partial save-post e!)}
     {:text "Publish" :on-click (r/partial publish-post e!)}]])
 
-(defn editor-page [e! editable-content]
+(defn editor-page [e! {:keys [title content] :as post}]
   [:<>
    [editor-buttons e!]
    [:div.editor-container
-    [input-box e! editable-content]
-    [preview editable-content]]])
+    [:div
+     [input-box e! content]]
+    [preview content]]])
