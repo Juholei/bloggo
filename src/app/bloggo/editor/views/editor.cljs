@@ -3,6 +3,7 @@
             [bloggo.editor.views.components.input-box :refer [input-box]]
             [bloggo.editor.views.components.button-bar :refer [button-bar]]
             [bloggo.editor.controllers.editor :as ec]
+            [bloggo.main.common :as c]
             [reagent.core :as r]))
 
 (defn save-post [e!]
@@ -10,6 +11,12 @@
 
 (defn publish-post [e!]
   (e! (ec/->PublishPost)))
+
+(defn update-title! [e! event]
+  (-> event
+      c/dom-event->value
+      ec/->UpdateNewPostTitle
+      e!))
 
 (defn editor-buttons [e!]
   [button-bar
@@ -20,7 +27,10 @@
 (defn editor-page [e! {:keys [title content] :as post}]
   [:<>
    [editor-buttons e!]
+   [:input {:type :text
+            :value title
+            :placeholder "Otsikko"
+            :on-change (r/partial update-title! e!)}]
    [:div.editor-container
-    [:div
-     [input-box e! content]]
+    [input-box e! content]
     [preview content]]])

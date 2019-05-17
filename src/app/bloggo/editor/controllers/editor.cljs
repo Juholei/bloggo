@@ -5,6 +5,10 @@
   {:path [:new-post :content]}
   post-content)
 
+(define-event UpdateNewPostTitle [title]
+  {:path [:new-post :title]}
+  title)
+
 (define-event SaveCurrentPost []
   {}
   (t/fx (assoc app :in-progress? true)
