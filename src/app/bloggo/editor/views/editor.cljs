@@ -29,7 +29,7 @@
    [editor-buttons e!]
    [:input {:type :text
             :value title
-            :placeholder "Otsikko"
+            :placeholder "Title"
             :on-change (r/partial update-title! e!)}]
    [:div.editor-container
     [input-box e! content]
