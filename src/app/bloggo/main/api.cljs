@@ -20,3 +20,10 @@
   (ajax/GET (str URL path)
             {:handler       #(e! (on-success (json->map %)))
              :error-handler #(e! (on-error %))}))
+
+(defmethod fx/process-effect ::post [e! {:keys [path params on-success on-error]
+                                         :or {on-error ->ErrorHandler}}]
+  (ajax/POST (str URL path) {:handler       #(e! (on-success (json->map %)))
+                             :format        :json
+                             :params        params
+                             :error-handler #(e! (on-error %))}))
