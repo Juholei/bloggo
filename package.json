@@ -18,7 +18,7 @@
     "react-dom": "^16.8.6"
   },
   "scripts": {
-    "start": "shadow-cljs watch app lambda",
+    "start": "shadow-cljs watch app devcards app-test",
     "test-watch": "shadow-cljs watch app-test",
     "test": "shadow-cljs compile app-test-ci && node_modules/karma/bin/karma start --single-run",
     "serverless-offline": "npx nodemon --exec \"serverless offline\" --watch target/bloggo.js"
