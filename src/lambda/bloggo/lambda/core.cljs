@@ -43,5 +43,13 @@
                                 clj->js
                                 js/JSON.stringify)}))))
 
-
-
+(defn save-post! [e ctx cb]
+  (let [post (-> e util/clojurify-event :body js/JSON.parse util/clojurify-event)
+        spit-posts! (partial spit "resources/posts.edn")
+        sort-fn (partial sort-by :id >)]
+    (-> post
+        (assoc :id (count mock-posts))
+        (cons mock-posts)
+        sort-fn
+        spit-posts!)
+    (cb nil (clj->js {:statusCode 200}))))

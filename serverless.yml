@@ -17,6 +17,12 @@ functions:
       - http:
           path: post/{id}
           method: get
+  new-post:
+    handler: target/bloggo.save
+    events:
+    - http:
+        path: new-post
+        method: post
 
 plugins:
   - serverless-finch

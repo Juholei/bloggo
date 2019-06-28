@@ -23,6 +23,7 @@
 
 (define-event PublishPost []
   {}
+  (println  (:new-post app))
   (t/fx (assoc app :in-progress? true)
         {:tuck.effect/type ::api/post
          :path             "/new-post"

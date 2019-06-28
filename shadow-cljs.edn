@@ -48,5 +48,6 @@
              :dev {:compiler-options {:devcards true}}}
   :lambda {:target :node-library
            :exports {:posts bloggo.lambda.core/posts
-                     :post  bloggo.lambda.core/post}
+                     :post  bloggo.lambda.core/post
+                     :save bloggo.lambda.core/save-post!}
            :output-to "target/bloggo.js"}}}
