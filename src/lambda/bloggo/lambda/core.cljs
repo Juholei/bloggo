@@ -9,10 +9,10 @@
 (def mock-posts (reader/read-string (slurp "resources/posts.edn")))
 
 (defn post->preview [post]
-  (update post :post (fn [post-content]
-                       (-> post-content
-                           (str/split #"\n")
-                           first))))
+  (update post :content (fn [post-content]
+                          (-> post-content
+                              (str/split #"\n")
+                              first))))
 
 (defn posts->previews [posts]
   (map post->preview posts))

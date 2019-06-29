@@ -4,15 +4,15 @@
 
 (defn blog-post
   "Display a blog post"
-  [{:keys [post title date] :as post-data}]
+  [{:keys [content title date] :as post}]
   [:div.post-container
    [:h1 title]
-   (md/markdown->hiccup post)])
+   (md/markdown->hiccup content)])
 
 (defn post-preview
   "Display first paragraph of post alongside link to full post"
-  [{:keys [post title date id] :as post-data}]
+  [{:keys [content title date id] :as post}]
   [:div
    [:a {:href (routes/href ::routes/post {:post-id id})}
     [:h1 title]]
-   (md/markdown->hiccup post)])
+   (md/markdown->hiccup content)])
