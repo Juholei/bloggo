@@ -23,10 +23,10 @@ jobs:
     docker:
       - image: circleci/clojure:openjdk-8-lein-2.9.1-node-browsers
     steps:
+      - checkout
       - run:
           name: "Install clj-kondo"
-          command: "curl -sO https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/install-clj-kondo
-chmod +x install-clj-kondo && ./install-clj-kondo"
+          command: "curl -sO https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/install-clj-kondo && chmod +x install-clj-kondo && ./install-clj-kondo"
       - run:
           name: "Run clj-kondo"
           command: clj-kondo --lint src
