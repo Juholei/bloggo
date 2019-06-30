@@ -1,9 +1,19 @@
 version: 2.1
 
-orbs:
-  welcome: circleci/welcome-orb@0.3.1
-
-workflows:
-  Welcome:
-    jobs:
-      - welcome/run
+jobs:
+  build-frontend:
+    docker:
+      - image: circleci/clojure:openjdk-8-lein-2.9.1-node-browsers
+    steps:
+      - checkout
+      - run:
+        name: "Building frontend"
+        command: npx shadow-cljs release app
+  test-frontend:
+    docker:
+      - image: circleci/clojure:openjdk-8-lein-2.9.1-node-browsers
+    steps:
+      - checkout
+      - run:
+        name: "Testing frontend"
+        command: npm test
