@@ -6,6 +6,7 @@ jobs:
       - image: circleci/clojure:openjdk-8-lein-2.9.1-node-browsers
     steps:
       - checkout
+      - run: npm ci
       - run:
           name: "Building frontend"
           command: "npx shadow-cljs release app"
@@ -14,6 +15,7 @@ jobs:
       - image: circleci/clojure:openjdk-8-lein-2.9.1-node-browsers
     steps:
       - checkout
+      - run: npm ci
       - run:
           name: "Testing frontend"
           command: npm test
