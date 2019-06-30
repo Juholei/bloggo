@@ -19,6 +19,17 @@ jobs:
       - run:
           name: "Testing frontend"
           command: npm test
+  lint:
+    docker:
+      - image: circleci/clojure:openjdk-8-lein-2.9.1-node-browsers
+    steps:
+      - run:
+          name: "Install clj-kondo"
+          command: "curl -sO https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/install-clj-kondo
+chmod +x install-clj-kondo && ./install-clj-kondo"
+      - run:
+          name: "Run clj-kondo"
+          command: clj-kondo --lint src
 
 workflows:
   version: 2
@@ -26,3 +37,4 @@ workflows:
     jobs:
     - build-frontend
     - test-frontend
+    - lint
