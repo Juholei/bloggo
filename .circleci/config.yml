@@ -7,16 +7,16 @@ jobs:
     steps:
       - checkout
       - run:
-        name: "Building frontend"
-        command: npx shadow-cljs release app
+          name: "Building frontend"
+          command: "npx shadow-cljs release app"
   test-frontend:
     docker:
       - image: circleci/clojure:openjdk-8-lein-2.9.1-node-browsers
     steps:
       - checkout
       - run:
-        name: "Testing frontend"
-        command: npm test
+          name: "Testing frontend"
+          command: npm test
 
 workflows:
   version: 2
