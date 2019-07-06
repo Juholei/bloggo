@@ -3,7 +3,6 @@
             [tuck.core :as t]
             [datafrisk.core :as df]
             [bloggo.main.state :as state]
-            [bloggo.main.module-loader :as loader]
             [bloggo.main.routes :as routes]
             [bloggo.main.components.navbar :refer [navbar]]
             [bloggo.main.view-resolver :as view-resolver :refer [root-view]]))
