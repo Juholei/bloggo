@@ -7,4 +7,3 @@
 (defcard-rg paginator
   "Paginator"
   [paginator/paginator 5 12 (constantly "#")])
-
