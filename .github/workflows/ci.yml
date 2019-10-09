@@ -25,6 +25,9 @@ jobs:
         CI: true
     - name: build frontend
       run: npm run build:frontend
-    - name: lint
-      uses: docker://borkdude/clj-kondo:latest
+
+  lint:
+      container: borkdude/clj-kondo:latest
+      steps:
+      -name: clj-kondo
       run: clj-kondo --lint src
