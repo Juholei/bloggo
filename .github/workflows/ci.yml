@@ -23,3 +23,5 @@ jobs:
         npm test
       env:
         CI: true
+    - name: build frontend
+      run: npm run build:frontend
