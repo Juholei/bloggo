@@ -1,6 +1,6 @@
 name: Bloggo CI
 
-on: [push pull_request]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -17,6 +17,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: install dependencies
+      run: npm ci
     - name: build frontend
       run: npm run build:frontend
 
@@ -32,6 +34,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: install dependencies
+      run: npm ci
     - name: test
       run: npm test
 
