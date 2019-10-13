@@ -22,6 +22,7 @@
     "build:frontend": "shadow-cljs release app",
     "test-watch": "shadow-cljs watch app-test",
     "test": "shadow-cljs compile app-test-ci && node_modules/karma/bin/karma start --single-run",
-    "serverless-offline": "npx nodemon --exec \"serverless offline\" --watch target/bloggo.js"
+    "serverless-offline": "npx nodemon --exec \"serverless offline\" --watch target/bloggo.js",
+    "lint": "clj-kondo --lint src"
   }
 }
