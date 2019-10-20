@@ -4,7 +4,7 @@
 
 (defn blog-post
   "Display a blog post"
-  [{:keys [content title date] :as post}]
+  [{:keys [content title] :as post}]
   [:div.post-container
    [:h1 title]
    (md/markdown->hiccup content)])
