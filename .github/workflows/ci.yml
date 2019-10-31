@@ -41,8 +41,13 @@ jobs:
 
   lint:
       runs-on: ubuntu-latest
-      container: borkdude/clj-kondo:latest
       steps:
       - uses: actions/checkout@v1
-      - name: clj-kondo
-        run: clj-kondo --lint src
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install dependencies
+        run: npm ci
+      - name: test
+        run: npm run lint
