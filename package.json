@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "clj-kondo": "^2019.10.11-alpha.1",
-    "karma": "^4.4.0",
+    "karma": "^4.4.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-cljs-test": "^0.1.0",
     "nodemon": "^1.19.1",
