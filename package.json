@@ -10,7 +10,7 @@
     "nodemon": "^1.19.4",
     "serverless-finch": "^2.4.3",
     "serverless-offline": "^5.12.0",
-    "shadow-cljs": "^2.8.69",
+    "shadow-cljs": "^2.8.77",
     "showdown": "^1.9.1"
   },
   "dependencies": {
