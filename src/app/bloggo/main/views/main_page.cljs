@@ -8,7 +8,7 @@
 
 (defn main-page [posts current-page page-count]
   [:<>
-   [:h1 "Bloggo Blog Platform - Disrupting blogosphere since 20xx"]
+   [:h1.text-4xl "Bloggo Blog Platform - Disrupting blogosphere since 20xx"]
    [:div.posts
     (for [post-data posts]
       ^{:key (:title post-data)}
