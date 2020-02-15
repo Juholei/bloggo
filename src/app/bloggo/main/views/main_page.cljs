@@ -1,6 +1,7 @@
 (ns bloggo.main.views.main-page
   (:require [bloggo.main.components.blog-post :as blog-post]
             [bloggo.main.components.paginator :as p]
+            [bloggo.main.components.typography :as typo]
             [bloggo.main.routes :as routes]))
 
 (defn select-page! [page-num]
@@ -8,7 +9,7 @@
 
 (defn main-page [posts current-page page-count]
   [:<>
-   [:h1.text-4xl "Bloggo Blog Platform - Disrupting blogosphere since 20xx"]
+   [typo/h1 "Bloggo Blog Platform - Disrupting blogosphere since 20xx"]
    [:div.posts
     (for [post-data posts]
       ^{:key (:title post-data)}
