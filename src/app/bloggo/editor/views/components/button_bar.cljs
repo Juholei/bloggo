@@ -1,10 +1,10 @@
 (ns bloggo.editor.views.components.button-bar
-  (:require [bloggo.main.components.input :as input]))
+  (:require [bloggo.main.components.button :refer [button]]))
 
 (defn button-bar [bar-id content]
   [:ul {:id bar-id}
    (for [{:keys [text on-click]} content]
      ^{:key (str bar-id "-" text)}
      [:li
-      [input/button text on-click]])])
+      [button text on-click]])])
 

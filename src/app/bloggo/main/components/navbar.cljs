@@ -8,6 +8,7 @@
 
 (defn navbar [nav-items]
   [:nav>ul.flex
-   (for [item nav-items]
-     ^{:key (str "nav-item-" (:label item))}
-     [navlink (:url item) (:label item)])])
+   (for [item nav-items
+         :let [label (:label item)]]
+     ^{:key (str "nav-item-" label)}
+     [navlink (:url item) label])])

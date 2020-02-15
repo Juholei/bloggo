@@ -1,4 +1,4 @@
-(ns bloggo.main.components.input)
+(ns bloggo.main.components.button)
 
 (defn button [text on-click]
   [:button {:type :button
