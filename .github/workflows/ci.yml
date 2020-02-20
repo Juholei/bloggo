@@ -20,7 +20,7 @@ jobs:
     - name: install dependencies
       run: npm ci
     - name: build frontend
-      run: npm run build:frontend
+      run: npm run build:frontend:prod
 
   test:
     runs-on: ubuntu-latest
