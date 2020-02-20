@@ -22,8 +22,9 @@
     "tailwindcss": "^1.2.0"
   },
   "scripts": {
-    "start": "shadow-cljs watch app devcards app-test",
-    "build:frontend": "shadow-cljs release app",
+    "start": "npm run build:frontend:dev & npm run build:styles:dev",
+    "build:frontend:dev": "shadow-cljs watch app devcards app-test",
+    "build:frontend:prod": "shadow-cljs release app",
     "build:styles:dev": "postcss -o public/styles.css --watch --verbose styles/styles.css",
     "test-watch": "shadow-cljs watch app-test",
     "test": "shadow-cljs compile app-test-ci && node_modules/karma/bin/karma start --single-run",
