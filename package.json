@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.0.6",
     "clj-kondo": "^2020.1.13",
     "karma": "^4.4.1",
     "karma-chrome-launcher": "^3.1.0",
@@ -26,6 +27,8 @@
     "build:frontend:dev": "shadow-cljs watch app devcards app-test",
     "build:frontend:prod": "shadow-cljs release app",
     "build:styles:dev": "postcss -o public/styles.css --watch --verbose styles/styles.css",
+    "build:styles:prod": "NODE_ENV=production postcss -o public/styles.css --verbose styles/styles.css",
+    "build": "npm run build:frontend:prod && npm run build:styles:prod",
     "test-watch": "shadow-cljs watch app-test",
     "test": "shadow-cljs compile app-test-ci && node_modules/karma/bin/karma start --single-run",
     "serverless-offline": "npx nodemon --exec \"serverless offline\" --watch target/bloggo.js",
