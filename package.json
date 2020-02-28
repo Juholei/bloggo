@@ -33,6 +33,7 @@
     "test-watch": "shadow-cljs watch app-test",
     "test": "shadow-cljs compile app-test-ci && node_modules/karma/bin/karma start --single-run",
     "serverless-offline": "npx nodemon --exec \"serverless offline\" --watch target/bloggo.js",
-    "lint": "clj-kondo --lint src"
+    "lint": "clj-kondo --lint src",
+    "report": "shadow-cljs run shadow.cljs.build-report app report.html"
   }
 }
