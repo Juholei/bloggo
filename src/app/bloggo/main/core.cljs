@@ -1,5 +1,6 @@
 (ns bloggo.main.core
   (:require [reagent.core :as r]
+            [reagent.dom :as rdom]
             [tuck.core :as t]
             [datafrisk.core :as df]
             [bloggo.main.state :as state]
@@ -21,11 +22,11 @@
        [df/DataFriskShell app-state])]))
 
 (defn mount-app! []
-  (r/render [t/tuck state/app-state app]
-            (.getElementById js/document "app")))
+  (rdom/render [t/tuck state/app-state app]
+               (.getElementById js/document "app")))
 
 (defn init []
   (mount-app!))
 
 (defn refresh! []
-  (r/force-update-all))
+  (rdom/force-update-all))
