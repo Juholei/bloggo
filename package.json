@@ -21,7 +21,7 @@
     "create-react-class": "^15.6.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.0",
-    "tailwindcss": "^1.2.0"
+    "tailwindcss": "^1.8.6"
   },
   "scripts": {
     "start": "npm run build:frontend:dev & npm run build:styles:dev",
