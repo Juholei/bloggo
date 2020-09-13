@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "autoprefixer": "^9.7.5",
-    "@fullhuman/postcss-purgecss": "^2.1.0",
+    "@fullhuman/postcss-purgecss": "^2.3.0",
     "clj-kondo": "^2020.1.13",
     "cssnano": "^4.1.10",
     "karma": "^4.4.1",
