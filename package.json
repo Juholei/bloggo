@@ -10,7 +10,7 @@
     "karma": "^5.2.3",
     "karma-chrome-launcher": "^3.1.0",
     "karma-cljs-test": "^0.1.0",
-    "marked": "^0.8.2",
+    "marked": "^1.1.1",
     "nodemon": "^2.0.4",
     "postcss": "^8.0.9",
     "postcss-cli": "^8.0.0",
