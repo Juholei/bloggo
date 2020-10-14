@@ -17,7 +17,7 @@
     "serverless-finch": "^2.6.0",
     "serverless-offline": "^6.8.0",
     "shadow-cljs": "^2.8.94",
-    "tailwindcss": "^1.8.10"
+    "tailwindcss": "^1.9.2"
   },
   "dependencies": {
     "create-react-class": "^15.6.3",
