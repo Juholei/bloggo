@@ -18,7 +18,7 @@
     "tailwindcss": "^1.8.10"
   },
   "dependencies": {
-    "create-react-class": "^15.6.3",
+    "create-react-class": "^15.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.0"
   },
