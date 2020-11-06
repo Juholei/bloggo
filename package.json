@@ -14,8 +14,6 @@
     "nodemon": "^2.0.4",
     "postcss": "^8.0.9",
     "postcss-cli": "^8.0.0",
-    "serverless-finch": "^2.6.0",
-    "serverless-offline": "^6.8.0",
     "shadow-cljs": "^2.8.94",
     "tailwindcss": "^1.8.10"
   },
@@ -25,15 +23,14 @@
     "react-dom": "^16.13.0"
   },
   "scripts": {
-    "start": "npm run build:frontend:dev & npm run build:styles:dev",
-    "build:frontend:dev": "shadow-cljs watch app devcards app-test",
-    "build:frontend:prod": "shadow-cljs release app",
+    "start": "npm run build:dev & npm run build:styles:dev",
+    "build:dev": "shadow-cljs watch app devcards app-test",
+    "build:prod": "shadow-cljs release app",
     "build:styles:dev": "postcss -o public/styles.css --watch --verbose styles/styles.css",
     "build:styles:prod": "NODE_ENV=production postcss -o public/styles.css --verbose styles/styles.css",
-    "build": "npm run build:frontend:prod && npm run build:styles:prod",
+    "build": "npm run build:prod && npm run build:styles:prod",
     "test-watch": "shadow-cljs watch app-test",
     "test": "shadow-cljs compile app-test-ci && node_modules/karma/bin/karma start --single-run",
-    "serverless-offline": "npx nodemon --exec \"serverless offline\" --watch target/bloggo.js",
     "lint": "clj-kondo --lint src",
     "report": "shadow-cljs run shadow.cljs.build-report app report.html"
   }

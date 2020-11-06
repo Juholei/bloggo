@@ -1,7 +1,6 @@
 ;; shadow-cljs configuration
 {:source-paths
  ["src/app"
-  "src/lambda"
   "test/app"
   "src/devcards"]
 
@@ -15,8 +14,7 @@
   [data-frisk-reagent "0.4.5"]
   [camel-snake-kebab "0.4.0"]
   [cljs-ajax "0.8.0"]
-  [devcards "0.2.6"]
-  [cljs-node-io "1.1.2"]]
+  [devcards "0.2.6"]]
 
  :nrepl {:port 7002}
  :builds
@@ -45,9 +43,4 @@
              :devtools {:http-port 8022
                         :http-root "public"
                         :after-load bloggo-example.devcards/main}
-             :dev {:compiler-options {:devcards true}}}
-  :lambda {:target :node-library
-           :exports {:posts bloggo.lambda.core/posts
-                     :post  bloggo.lambda.core/post
-                     :save bloggo.lambda.core/save-post!}
-           :output-to "target/bloggo.js"}}}
+             :dev {:compiler-options {:devcards true}}}}}
