@@ -5,7 +5,7 @@
   "src/devcards"]
 
  :dependencies
- [[reagent "0.10.0"]
+ [[reagent "1.0.0"]
   [webjure/tuck "20181204"]
   [markdown-to-hiccup "0.6.2"]
   [binaryage/devtools "0.9.10"]
