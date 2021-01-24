@@ -20,4 +20,6 @@ pom.xml.asc
 .hg/
 .serverless/
 .clj-kondo/.cache/
+.calva/
+.lsp/
 report.html
